@@ -3,8 +3,6 @@ import Image from 'next/image';
 import moment from 'moment';
 import Link from 'next/link';
 
-import { grpahCMSImageLoader } from '../util';
-
 const PostCard = ({ post }) => (
     <div className="bg-white shadow-lg rounded-lg p-0 lg:p-8 pb-12 mb-8">
         {/* <div className="relative shadow-md inline-block w-full h-60 lg:h-80 mb-6">
