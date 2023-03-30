@@ -39,7 +39,9 @@ export default PostDetails;
 // Fetch data at build time
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug);
-  return { props: { post: data }
+  return { 
+    props: { post: data },
+    revalidate: 60 // regenerate the page every 60 seconds
   };
 }
 
@@ -49,6 +51,6 @@ export async function getStaticPaths() {
   const posts = await getPosts();
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
-    fallback: true,
+    fallback: 'blocking',
   };
 }
